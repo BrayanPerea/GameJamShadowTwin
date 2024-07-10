@@ -10,7 +10,8 @@ public enum SoundType
     LANDING,
     HURT,
     GAMEOVER,
-    GAMEWIN
+    GAMEWIN,
+    UI
 }
 
 public class AudioManager : MonoBehaviour
