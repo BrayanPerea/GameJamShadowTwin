@@ -15,12 +15,21 @@ public class PlayerController : MonoBehaviour
     public float gravityModifier= 1.5f;
     public bool isOnGround = true;
     public bool isMoving= false;
+    private static bool gravityModified= false;
+    private static Vector3 originalGravity;
 
     void Start()
     {
         playerRb = GetComponent<Rigidbody>();
         playerAnim = GetComponent<Animator>();
-        Physics.gravity *= gravityModifier;    
+        Physics.gravity *= gravityModifier;  
+         if (!gravityModified)
+        {
+            originalGravity = Physics.gravity;
+
+            Physics.gravity *= gravityModifier;
+            gravityModified = true;
+        }  
     }
 
     void Update()
@@ -57,5 +66,12 @@ public class PlayerController : MonoBehaviour
             isOnGround = true;
             playerAnim.SetBool("Jumping", false);
         }
+    }
+
+    void OnDisable()
+    {
+        // Restaurar el valor original de la gravedad
+        Physics.gravity = originalGravity;
+        gravityModified = false;
     }
 }

@@ -513,8 +513,12 @@ PrefabInstance:
       value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1846374903, guid: 3c03a2d1826dfeb4899b7963ce42b44f, type: 3}
+      propertyPath: speed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1846374903, guid: 3c03a2d1826dfeb4899b7963ce42b44f, type: 3}
       propertyPath: jumpForce
-      value: 16
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 2321204088768134119, guid: 3c03a2d1826dfeb4899b7963ce42b44f, type: 3}
       propertyPath: m_RootOrder
@@ -969,8 +973,12 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1846374903, guid: b96858c6e784a6041845ecbb2f6df855, type: 3}
+      propertyPath: speed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1846374903, guid: b96858c6e784a6041845ecbb2f6df855, type: 3}
       propertyPath: jumpForce
-      value: 16
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 2321204088768134119, guid: b96858c6e784a6041845ecbb2f6df855, type: 3}
       propertyPath: m_RootOrder
@@ -1306,8 +1314,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 943188704}
   m_LocalRotation: {x: 0.5, y: 0.5, z: -0.5, w: 0.5}
-  m_LocalPosition: {x: -4.05, y: 0.8, z: 27.51}
-  m_LocalScale: {x: 6.157543, y: 1, z: 0.9476}
+  m_LocalPosition: {x: -3.7, y: 9.054, z: 27.51}
+  m_LocalScale: {x: 6.157543, y: 1, z: 2.5984194}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -2820,8 +2828,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1857336616}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -33.9114, y: 0.5481, z: 57.9}
-  m_LocalScale: {x: 6.157543, y: 1, z: 0.9476}
+  m_LocalPosition: {x: -34.0724, y: 9.2306, z: 58.4}
+  m_LocalScale: {x: 6.1255236, y: 1, z: 2.637078}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -3126,6 +3134,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 936753089}
     m_Modifications:
+    - target: {fileID: 2048241960263407958, guid: e226f2d396fe59b419b0eecabf6002b1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4565306199646057956, guid: e226f2d396fe59b419b0eecabf6002b1, type: 3}
       propertyPath: m_Name
       value: Wall02 - trap
