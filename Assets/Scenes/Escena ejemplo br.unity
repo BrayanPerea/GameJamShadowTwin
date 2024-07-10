@@ -708,11 +708,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2321204088768134119, guid: b96858c6e784a6041845ecbb2f6df855, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.00000011920929
+      value: 3.5
       objectReference: {fileID: 0}
     - target: {fileID: 2321204088768134119, guid: b96858c6e784a6041845ecbb2f6df855, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 59.51
+      value: 59.32
       objectReference: {fileID: 0}
     - target: {fileID: 2321204088768134119, guid: b96858c6e784a6041845ecbb2f6df855, type: 3}
       propertyPath: m_LocalRotation.w
@@ -833,6 +833,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   horizontalInput: 2
   forwardInput: 2
+  footstepClip: {fileID: 0}
   speed: 3
   jumpForce: 10
   gravityModifier: 1.5
@@ -1108,6 +1109,10 @@ PrefabInstance:
     - target: {fileID: 4161936372394338924, guid: bf2fce362b73be5479984bad329d919d, type: 3}
       propertyPath: m_Name
       value: Wall04 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4161936372394338924, guid: bf2fce362b73be5479984bad329d919d, type: 3}
+      propertyPath: m_TagString
+      value: GameOver
       objectReference: {fileID: 0}
     - target: {fileID: 4161936372394338925, guid: bf2fce362b73be5479984bad329d919d, type: 3}
       propertyPath: m_RootOrder
@@ -1463,6 +1468,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall04 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 4161936372394338924, guid: bf2fce362b73be5479984bad329d919d, type: 3}
+      propertyPath: m_TagString
+      value: GameOver
+      objectReference: {fileID: 0}
     - target: {fileID: 4161936372394338925, guid: bf2fce362b73be5479984bad329d919d, type: 3}
       propertyPath: m_RootOrder
       value: 11
@@ -1580,6 +1589,10 @@ PrefabInstance:
     - target: {fileID: 4161936372394338924, guid: bf2fce362b73be5479984bad329d919d, type: 3}
       propertyPath: m_Name
       value: Wall04 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4161936372394338924, guid: bf2fce362b73be5479984bad329d919d, type: 3}
+      propertyPath: m_TagString
+      value: GameOver
       objectReference: {fileID: 0}
     - target: {fileID: 4161936372394338925, guid: bf2fce362b73be5479984bad329d919d, type: 3}
       propertyPath: m_RootOrder
@@ -2004,6 +2017,10 @@ PrefabInstance:
       propertyPath: m_NormalizedViewPortRect.x
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 1846374903, guid: b96858c6e784a6041845ecbb2f6df855, type: 3}
+      propertyPath: jumpForce
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 2321204088768134119, guid: b96858c6e784a6041845ecbb2f6df855, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -2051,6 +2068,10 @@ PrefabInstance:
     - target: {fileID: 3133734027077689693, guid: b96858c6e784a6041845ecbb2f6df855, type: 3}
       propertyPath: m_Name
       value: Knight
+      objectReference: {fileID: 0}
+    - target: {fileID: 3133734027077689693, guid: b96858c6e784a6041845ecbb2f6df855, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b96858c6e784a6041845ecbb2f6df855, type: 3}
