@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Data.SqlTypes;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -9,7 +10,7 @@ public class PlayerController : MonoBehaviour
 
     public float horizontalInput;
     public float forwardInput;
-    public float speed = 5.0f;
+    public float speed = 3.0f;
     private Animator playerAnim;
     public float jumpForce = 10;
     public float gravityModifier= 1.5f;
@@ -56,6 +57,12 @@ public class PlayerController : MonoBehaviour
         {
             isOnGround = true;
             playerAnim.SetBool("Jumping", false);
+        }
+
+        if (collision.gameObject.CompareTag("GameOver"))
+        {
+            // Cargar la escena del menú inicial
+            SceneManager.LoadScene("MainMenuBp");
         }
     }
 }
