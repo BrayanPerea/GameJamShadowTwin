@@ -1,61 +1,84 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Data.SqlTypes;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
-   private Rigidbody playerRb;
+    private Rigidbody playerRb;
+    private Animator playerAnim;
+    private static Vector3 originalGravity;
+    private AudioSource audioSource;
 
     public float horizontalInput;
     public float forwardInput;
     public float speed = 5.0f;
-    private Animator playerAnim;
-    public float jumpForce = 10;
-    public float gravityModifier= 1.5f;
-    public bool isOnGround = true;
-    public bool isMoving= false;
-    private static bool gravityModified= false;
-    private static Vector3 originalGravity;
+    public float jumpForce = 10.0f;
+    public bool isOnGround;
+    public bool isMoving = false;
+    public AudioClip footstepClip;
+    public float downForce = 22f;
 
     void Start()
     {
         playerRb = GetComponent<Rigidbody>();
         playerAnim = GetComponent<Animator>();
-        Physics.gravity *= gravityModifier;  
-         if (!gravityModified)
-        {
-            originalGravity = Physics.gravity;
-
-            Physics.gravity *= gravityModifier;
-            gravityModified = true;
-        }  
+        audioSource = GetComponent<AudioSource>();
+        audioSource.clip = footstepClip;
     }
 
     void Update()
     {
-       /* horizontalInput = Input.GetAxis("Horizontal");
-        forwardInput = Input.GetAxis("Forward");
-        */
-       
+        HandleMovement();
+        HandleJumping();
+        HandleFootsteps();
+    }
 
-        if(Input.GetKey(KeyCode.S)){
-            transform.Translate(Vector3.back*horizontalInput* Time.deltaTime*speed);
+    private void HandleMovement()
+    {
+        if (Input.GetKey(KeyCode.S))
+        {
+            transform.Translate(Vector3.back * horizontalInput * Time.deltaTime * speed);
             playerAnim.SetFloat("Speed", -1f);
-
-        }else if(Input.GetKey(KeyCode.W)){
-            transform.Translate(Vector3.forward* forwardInput*Time.deltaTime*speed);
+        }
+        else if (Input.GetKey(KeyCode.W))
+        {
+            transform.Translate(Vector3.forward * forwardInput * Time.deltaTime * speed);
             playerAnim.SetFloat("Speed", 1f);
-
-        }else{
+        }
+        else
+        {
             playerAnim.SetFloat("Speed", 0f);
         }
-        
-            if (Input.GetKeyDown(KeyCode.Space) && isOnGround)
+    }
+
+    private void HandleJumping()
+    {
+        if (Input.GetKeyDown(KeyCode.Space) && isOnGround)
         {
             playerRb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             isOnGround = false;
             playerAnim.SetBool("Jumping", true);
+        }
+
+        if (!isOnGround)
+        {
+            playerRb.AddForce(Vector3.down * downForce);
+        }
+    }
+
+    private void HandleFootsteps()
+    {
+        if (isOnGround && (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.W)))
+        {
+            if (!audioSource.isPlaying)
+            {
+                audioSource.Play();
+            }
+        }
+        else
+        {
+            audioSource.Stop();
         }
     }
 
@@ -66,12 +89,10 @@ public class PlayerController : MonoBehaviour
             isOnGround = true;
             playerAnim.SetBool("Jumping", false);
         }
-    }
 
-    void OnDisable()
-    {
-        // Restaurar el valor original de la gravedad
-        Physics.gravity = originalGravity;
-        gravityModified = false;
+        if (collision.gameObject.CompareTag("GameOver"))
+        {
+            SceneManager.LoadScene("GameOver");
+        }
     }
 }
