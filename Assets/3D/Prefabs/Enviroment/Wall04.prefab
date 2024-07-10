@@ -612,6 +612,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: wallslittle_003 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 79e32eeb75ad8f74d976fc8b56864d9c, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 79e32eeb75ad8f74d976fc8b56864d9c, type: 3}
 --- !u!1 &3819970327100555711 stripped
@@ -1127,6 +1131,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 79e32eeb75ad8f74d976fc8b56864d9c, type: 3}
       propertyPath: m_Name
       value: wallslittle_003 (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 79e32eeb75ad8f74d976fc8b56864d9c, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 79e32eeb75ad8f74d976fc8b56864d9c, type: 3}
