@@ -19,6 +19,8 @@ public class PlayerController : MonoBehaviour
     public AudioClip footstepClip;
     public float downForce = 22f;
 
+    public GameObject explosionParticle;
+
         void Start()
     {
         playerRb = GetComponent<Rigidbody>();
@@ -96,7 +98,21 @@ public class PlayerController : MonoBehaviour
             SceneManager.LoadScene("GameOver");
         }
         if(collision.gameObject.CompareTag("darKnight")){
-            SceneManager.LoadScene("WinLevel");
+            if(explosionParticle != null){
+            explosionParticle.SetActive(true);
+            ParticleSystem ps = explosionParticle.GetComponent<ParticleSystem>();
+            if (ps != null)
+            {
+               ps.Play();
             }
+            }
+            StartCoroutine(LoadSceneAfterDelay(2.5f));
+            }
+        
+    }
+     IEnumerator LoadSceneAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        SceneManager.LoadScene("WinLevel");
     }
 }
