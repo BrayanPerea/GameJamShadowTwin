@@ -5,41 +5,47 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    private Rigidbody playerRb;
+    private Rigidbody playerRb; 
+    private Animator playerAnim;
     public float horizontalInput;
-    public float invertedInput;
     public float forwardInput;
     public float speed = 10.0f;
+    public float gravityModifier= 1.5f;
+    public bool isOnGround = true;
     public float jumpForce = 10;
-    public float gravityModifier;
-    private bool isOnGround= true;
+
     void Start()
     {
-        playerRb= GetComponent<Rigidbody>();
-        Physics.gravity *= gravityModifier;
+        playerRb = GetComponent<Rigidbody>();
+        playerAnim= GetComponent<Animator>();
+        Physics.gravity *= gravityModifier;  
     }
 
     void Update()
     {
-        if(gameObject.CompareTag("PlayerSoul")){
-            invertedInput = Input.GetAxis("Horizontal");
-            transform.Translate(Vector3.left*invertedInput* Time.deltaTime*speed);
-        }else{
-        horizontalInput = Input.GetAxis("Horizontal");
-        transform.Translate(Vector3.right*horizontalInput* Time.deltaTime*speed);
-        }
-        forwardInput = Input.GetAxis("Forward");
-        transform.Translate(Vector3.forward* forwardInput*Time.deltaTime*speed);
+ horizontalInput = Input.GetAxis("Horizontal");
+        forwardInput = Input.GetAxis("Vertical");  // Cambié "Forward" a "Vertical" para el eje de movimiento correcto
 
+        // Movimiento del jugador
+        Vector3 movement = new Vector3(horizontalInput, 0, forwardInput);
+        transform.Translate(movement * Time.deltaTime * speed);
+
+        // Verificar si el jugador se está moviendo
+        bool isMoving = movement.magnitude > 0;
+        playerAnim.SetBool("isMoving", isMoving);
+        
         if(Input.GetKeyDown(KeyCode.Space) && isOnGround){
             playerRb.AddForce(Vector3.up*jumpForce, ForceMode.Impulse);
             isOnGround=false;
+            playerAnim.SetTrigger("Jumping");
+                
+            
         }
     }
-
-     private void OnCollisionEnter(Collision collision) {
+        private void OnCollisionEnter(Collision collision) {
         if(collision.gameObject.CompareTag("Ground")){
-                    isOnGround= true;
+            isOnGround= true;
+            playerAnim.ResetTrigger("Jumping");
         }
-     }
+        }
 }
