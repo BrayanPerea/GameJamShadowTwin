@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour
     public AudioClip footstepClip;
     public float downForce = 22f;
 
-    void Start()
+        void Start()
     {
         playerRb = GetComponent<Rigidbody>();
         playerAnim = GetComponent<Animator>();
@@ -33,6 +33,7 @@ public class PlayerController : MonoBehaviour
         HandleJumping();
         HandleFootsteps();
     }
+    
 
     private void HandleMovement()
     {
@@ -59,7 +60,7 @@ public class PlayerController : MonoBehaviour
             playerRb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             isOnGround = false;
             playerAnim.SetBool("Jumping", true);
-        }
+            }
 
         if (!isOnGround)
         {
@@ -94,5 +95,8 @@ public class PlayerController : MonoBehaviour
         {
             SceneManager.LoadScene("GameOver");
         }
+        if(collision.gameObject.CompareTag("darKnight")){
+            SceneManager.LoadScene("WinLevel");
+            }
     }
 }
