@@ -587,6 +587,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Floor01
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 7e0f69b3c6faedc4db1bf364ba4a7fd0, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7e0f69b3c6faedc4db1bf364ba4a7fd0, type: 3}
 --- !u!4 &6951360517359704904 stripped

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4161936372221506605}
   m_Layer: 0
   m_Name: DeathCollision
-  m_TagString: Untagged
+  m_TagString: GameOver
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -43,8 +43,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 4.4139614, y: 0.5985527, z: 4.435608}
-  m_Center: {x: 2.0467968, y: -11.311314, z: 8.977112}
+  m_Size: {x: 4.4139614, y: 4.1675215, z: 4.435608}
+  m_Center: {x: 2.0467968, y: -9.526829, z: 8.977112}
 --- !u!1 &4161936372394338924
 GameObject:
   m_ObjectHideFlags: 0
@@ -101,8 +101,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 4.4139614, y: 0.5985527, z: 4.435608}
-  m_Center: {x: 2.0467968, y: -11.311314, z: 8.977112}
+  m_Size: {x: 4.4139614, y: 2.5629063, z: 4.435608}
+  m_Center: {x: 2.0467968, y: -10.329137, z: 8.977112}
 --- !u!1001 &4161936370608381297
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -611,6 +611,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 79e32eeb75ad8f74d976fc8b56864d9c, type: 3}
       propertyPath: m_Name
       value: wallslittle_003 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 79e32eeb75ad8f74d976fc8b56864d9c, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 79e32eeb75ad8f74d976fc8b56864d9c, type: 3}
@@ -1127,6 +1131,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 79e32eeb75ad8f74d976fc8b56864d9c, type: 3}
       propertyPath: m_Name
       value: wallslittle_003 (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 79e32eeb75ad8f74d976fc8b56864d9c, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 79e32eeb75ad8f74d976fc8b56864d9c, type: 3}
